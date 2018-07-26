@@ -132,6 +132,8 @@ def parseAll():
             continue
 
 def parseOne(filename):
+
+
     print("FILE: %s:" % (filename))
 
     parser = make_parser()
@@ -139,14 +141,22 @@ def parseOne(filename):
     parser.setContentHandler(b)
     parser.parse(filename)
 
-    for bank in b.getBanks():
-        print("%-40s - %s:" % (bank.getName(), bank.getUuid()))
-        print("Preset count: %i\nComment: %s\nExport Date: %s" % (len(bank.getPresets()), bank.getComment(), bank.getExportDate()))
-        for preset in bank.getPresets():
-            print("\t%-40s - %s" % (preset.getName(), preset.getUuid()))
+    if sys.argv[2] == "-csv":
+        for bank in b.getBanks():
+            i = 1
+            print("Number, Name, UUID")
+            for preset in bank.getPresets():
+                print("%i,%s,%s," % (i, preset.getName(), preset.getUuid()))
+                i += 1
+    else:
+        for bank in b.getBanks():
+            print("%-40s - %s:" % (bank.getName(), bank.getUuid()))
+            print("Preset count: %i\nComment: %s\nExport Date: %s" % (len(bank.getPresets()), bank.getComment(), bank.getExportDate()))
+            for preset in bank.getPresets():
+                print("\t%-40s - %s" % (preset.getName(), preset.getUuid()))
 
 
-if len(sys.argv) != 2:
+if len(sys.argv) < 2:
     printHelp()
     exit(-1)
 elif sys.argv[1] == "help":
