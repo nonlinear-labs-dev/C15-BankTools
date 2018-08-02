@@ -1,6 +1,12 @@
 # C15-BankTools
-collection of Python-Scripts that allow introspection of NL-C15 exported Banks.
-Includes:
-Lib that parses the xml roughly and allows looping through all data
+collection of Python-Scripts that allow introspection of C15 exported Banks.
 
-examples for converting to csv, 'pretty' printing data and printing all found tags. Which is useful for devolpers to understand the xml and what data can be gathered. 
+## examples
+- [x] converting to csv
+- [x] printing data
+- [x] printing all tags
+- [ ] parameter insights
+
+## lib
+- [x] Parsing single Bank from XML
+- [ ] Parsing whole Presetmanager from tar.gz
