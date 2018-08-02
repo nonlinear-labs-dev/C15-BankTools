@@ -10,21 +10,24 @@ def parseAsCSV(filename):
         numPresets = 0
         for preset in bank.getPresets():                                        #Schleife über alle Presets der aktuellen Bank
             numPresets += 1
-                                                                                #Formatierte Ausgabe der für den User interessanten Daten
+                                                                                #Formatierte Ausgabe der für den User relevanten Daten
             lines.append("%i,%s,%s,%s,%s,\n" % (numPresets,                     #%i - Integer, %s - String
             preset.getNodeValue("name"),
             preset.getNodeValue("uuid"),
             preset.getNodeValue("color"),
             preset.getNodeValue("comment")))
     return lines
+#end parseAsCSV
 
 def writeListOfLinesToFile(file, lines):
     file = open(file, "w")
     for line in lines:
         file.write(line)
     file.close()
+#end writeListOfLinesToFile
 
-#Programmeinstieg
+                                                                                #Programmeinstieg
+#main
 if len(sys.argv) < 2:
     print("use: ./bankToCsv <BANK>.xml <OUT>.csv")
     exit(1)
@@ -37,3 +40,4 @@ if len(sys.argv) >= 3:
 
 lines = parseAsCSV(inFile)
 writeListOfLinesToFile(outFile, lines)
+#endmain
