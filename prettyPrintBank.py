@@ -14,13 +14,10 @@ def prettyPrintBank(filename):
         for preset in bank.getPresets():
             presetNum += 1
             print('%s\t %i\t %s' % (preset.getNodeValue("color"), presetNum, preset.getNodeValue("name")))
-#end printAllTags
 
-#main
 if len(sys.argv) < 2:
     print("use: ./prettyPrintBank.py <BANK>.xml")
     exit(1)
 
 inFile = sys.argv[1]
 prettyPrintBank(inFile)
-#endmain
