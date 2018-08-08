@@ -11,6 +11,10 @@ def printAllTags(filename):
         for preset in bank.getPresets():
             print("Preset Tags:")
             print('%s' % ', '.join(map(str, preset.getKeys())))
+            for param in preset.getParameters():
+                print("Parameter Tags:")
+                print("%s" % ", ".join(map(str, param.getKeys())))
+                break
             break
         break
 #end printAllTags

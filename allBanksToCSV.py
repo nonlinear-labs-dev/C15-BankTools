@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # coding=UTF8
 import sys
+import os
 import NonlinearLabsBankTools
 
 def getAllXML():
@@ -17,12 +18,26 @@ def parseAsCSV(filename):
         numPresets = 0
         for preset in bank.getPresets():
             numPresets += 1
+            mc1 = ""
+            mc2 = ""
+            mc3 = ""
+            mc4 = ""
+            for param in preset.getParameters():
+                if param.getNodeValue("id") == "243":
+                    mc1 = param.getNodeValue("givenName")
+                if param.getNodeValue("id") == "244":
+                    mc2 = param.getNodeValue("givenName")
+                if param.getNodeValue("id") == "245":
+                    mc3 = param.getNodeValue("givenName")
+                if param.getNodeValue("id") == "246":
+                    mc4 = param.getNodeValue("givenName")
 
-            lines.append("%i,%s,%s,%s,%s,\n" % (numPresets,
+            lines.append("%i,%s,%s,%s,%s,%s,%s,%s,%s,\n" % (numPresets,
             preset.getNodeValue("name"),
             preset.getNodeValue("uuid"),
             preset.getNodeValue("color"),
-            preset.getNodeValue("comment")))
+            preset.getNodeValue("comment"),
+            mc1, mc2, mc3, mc4))
     return lines
 
 def writeListOfLinesToFile(file, lines):
@@ -34,7 +49,7 @@ def writeListOfLinesToFile(file, lines):
 if len(sys.argv) > 1:
     print("use: ./allBanksToCSV.py")
     exit(1)
-for infile in getAllXML():
+for inFile in getAllXML():
     outFile = inFile + ".csv"
     lines = parseAsCSV(inFile)
     writeListOfLinesToFile(outFile, lines)
