@@ -5,7 +5,7 @@ collection of Python-Scripts that allow introspection of C15 exported Banks.
 - [x] converting to csv
 - [x] printing data
 - [x] printing all tags
-- [ ] parameter insights
+- [x] parameter insights
 
 ## lib
 - [x] Parsing single Bank from XML
