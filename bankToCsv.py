@@ -14,6 +14,17 @@ def parseAsCSV(filename):
             mc2 = ""
             mc3 = ""
             mc4 = ""
+            mc5 = ""
+            mc6 = ""
+
+
+            mcAssignments = [[], [], [], [], [], []]
+
+            for param in preset.getParameters():
+                modSrc = param.getNodeValue("modSrc")
+                if modSrc != "None":
+                    mcAssignments[int(modSrc) - 1].append(param.getNodeValue("id"))                    
+
             for param in preset.getParameters():
                 if param.getNodeValue("id") == "243":
                     mc1 = param.getNodeValue("givenName")
@@ -23,13 +34,19 @@ def parseAsCSV(filename):
                     mc3 = param.getNodeValue("givenName")
                 if param.getNodeValue("id") == "246":
                     mc4 = param.getNodeValue("givenName")
-                                                                                #Formatierte Ausgabe der für den User relevanten Daten
-            lines.append("%i,%s,%s,%s,%s,%s,%s,%s,%s,\n" % (numPresets,                     #%i - Integer, %s - String
+                if param.getNodeValue("id") == "369":
+                    mc5 = param.getNodeValue("givenName")
+                if param.getNodeValue("id") == "371":
+                    mc6 = param.getNodeValue("givenName")
+                
+                                                                                            #Formatierte Ausgabe der für den User relevanten Daten
+
+            lines.append("%i,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" % (numPresets,                     #%i - Integer, %s - String
             preset.getNodeValue("name"),
             preset.getNodeValue("uuid"),
             preset.getNodeValue("color"),
-            preset.getNodeValue("comment"),
-            mc1, mc2, mc3, mc4))
+            preset.getNodeValue("Comment"),
+            mc1, mc2, mc3, mc4, mc5, mc6))
     return lines
 #end parseAsCSV
 
