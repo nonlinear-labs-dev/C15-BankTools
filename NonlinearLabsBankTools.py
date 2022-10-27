@@ -25,6 +25,15 @@ class Preset():
     def getParameters(self):
         return self.parameters
 
+    def getParameter(self, id):
+        for i in self.parameters:
+            if i.getNodeValue("id") == id:
+                return i
+        return None
+
+    def getName(self):
+        return self.getNodeValue("name")
+
     def addParameter(self, parameter):
         self.parameters.append(parameter)
 
@@ -54,6 +63,9 @@ class Bank():
 
     def getPresets(self):
         return self.presets
+
+    def getName(self):
+        return self.getNodeValue("name")
 
     def getNodeValue(self, key):
         if key in self.attributes:
