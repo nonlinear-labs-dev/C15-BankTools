@@ -30,19 +30,19 @@ def banksDiffer(bank1, bank2) -> bool:
                 return True
             
             if otherParameter.getNodeValue("value") != parameter.getNodeValue("value"):
-                print(f"{preset.getName()}-{parameter.getID()}: {parameter.getNodeValue('value')} != {otherParameter.getNodeValue('value')}")
+                print(f"{preset.getName()}-{parameter.getID()} Parameter-Value: {parameter.getNodeValue('value')} != {otherParameter.getNodeValue('value')}")
                 return True
             
             if otherParameter.getNodeValue("pedalMode") != parameter.getNodeValue("pedalMode"):
-                print(f"{preset.getName()}-{parameter.getID()}: {parameter.getNodeValue('pedalMode')} != {otherParameter.getNodeValue('pedalMode')}")
+                print(f"{preset.getName()}-{parameter.getID()} Pedal-Mode: {parameter.getNodeValue('pedalMode')} != {otherParameter.getNodeValue('pedalMode')}")
                 return True
             
             if otherParameter.getNodeValue("modSrc") != parameter.getNodeValue("modSrc"):
-                print(f"{preset.getName()}-{parameter.getID()}: {parameter.getNodeValue('modSrc')} != {otherParameter.getNodeValue('modSrc')}")
+                print(f"{preset.getName()}-{parameter.getID()} mod-source: {parameter.getNodeValue('modSrc')} != {otherParameter.getNodeValue('modSrc')}")
                 return True
             
             if otherParameter.getNodeValue("modAmount") != parameter.getNodeValue("modAmount"):
-                print(f"{preset.getName()}-{parameter.getID()}: {parameter.getNodeValue('modAmount')} != {otherParameter.getNodeValue('modAmount')}")
+                print(f"{preset.getName()}-{parameter.getID()} modulation-amount: {parameter.getNodeValue('modAmount')} != {otherParameter.getNodeValue('modAmount')}")
                 return True
 
     return False
