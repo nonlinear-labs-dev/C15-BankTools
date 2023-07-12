@@ -25,7 +25,7 @@ def findNonZeroPresetsInBankFile(filename):
                 continue
 
             benderValue = bender.getNodeValue("value")
-            if float(benderValue) != 0:
+            if float(benderValue) >= 0.1 or float(benderValue) <= -0.1:
                 print(f"{bank.getName()}-{preset.getName()} has bender value: {benderValue}")
         break
 
