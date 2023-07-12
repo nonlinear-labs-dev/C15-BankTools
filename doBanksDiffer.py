@@ -15,7 +15,7 @@ def banksDiffer(bank1, bank2) -> bool:
         return True
 
     banks1 = banks1[0]
-    banks2 = banks2[1]
+    banks2 = banks2[0]
 
     for preset in banks1.getPresets():
         otherPreset = banks2.findPreset(preset.getName())
