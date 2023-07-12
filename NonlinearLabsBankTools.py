@@ -12,10 +12,15 @@ class Parameter():
     def getNodeValue(self, key):
         if key in self.attributes:
             return self.attributes[key]
+        elif "meta"+key in self.attributes:
+            return self.attributes["meta"+key]
         return "None"
 
     def getKeys(self):
         return list(self.attributes.keys())
+    
+    def getID(self):
+        return self.getNodeValue("id")
 
 class Preset():
     def __init__(self):
@@ -37,6 +42,12 @@ class Preset():
     def addParameter(self, parameter):
         self.parameters.append(parameter)
 
+    def findParameter(self, id):
+        for i in self.parameters:
+            if i.getNodeValue("id") == id:
+                return i
+        return None
+    
     def setNodeValue(self, key, value):
         self.attributes[key] = value
 
@@ -63,6 +74,12 @@ class Bank():
 
     def getPresets(self):
         return self.presets
+    
+    def findPreset(self, name):
+        for i in self.presets:
+            if i.getName() == name:
+                return i
+        return None
 
     def getName(self):
         return self.getNodeValue("name")
@@ -118,7 +135,6 @@ class BankHandler(handler.ContentHandler):
                     self.activeObject.setNodeValue(name, self.currentContent)
                 else:
                     self.activeObject.setNodeValue("meta"+self.currentAttribute, self.currentContent)
-
             self.currentContent = ""
 
         def getBanks(self):
