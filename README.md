@@ -22,3 +22,10 @@ use: ./bankToCsv <BANK>.xml <OUT>.csv
 Indicating that you should supply a path to a Bank.xml file which will be used as input, and a path to where the result should be written.
 
 All scripts (excluding ones living under /lib) follow this convention of printing their usage.
+
+# working with paths on windows:
+When using this tool on windows make sure to escape all paths with this symbol: "
+example:
+```
+python test.py "path/to/directory or file/with spaces.xml"
+``` 
