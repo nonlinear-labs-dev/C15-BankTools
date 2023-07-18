@@ -249,6 +249,8 @@ class BankHandler(handler.ContentHandler):
 
 class NLParser():
     def __init__(self, filename):
+        if not filename.startswith("file:"):
+            filename = "file:" + filename
         self.filename = filename
         self.parser = make_parser()
         self.b = BankHandler()
