@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding=UTF8
 import sys
-import NonlinearLabsBankTools
+import lib.NonlinearLabsBankTools as NonlinearLabsBankTools
 
 def prettyPrintBank(filename):
     presets = list()
@@ -18,8 +18,8 @@ def prettyPrintBank(filename):
             presetNum += 1
             numPresets += 1
             presets.append('%i\t %s' % (presetNum, preset.getNodeValue("name")))
-    
-    print str(bankName) + " - " + str(numPresets) + " presets"
+
+    print(str(bankName) + " - " + str(numPresets) + " presets")
     for p in presets:
         print(p)
     

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding=UTF8
 import sys
-import NonlinearLabsBankTools
+import lib.NonlinearLabsBankTools as NonlinearLabsBankTools
 import glob
 
 def findNonZeroPresetsInBankFile(filename):
