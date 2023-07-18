@@ -3,8 +3,7 @@
 import sys
 import lib.NonlinearLabsBankTools as NonlinearLabsBankTools
 
-def banksDiffer(bank1, bank2) -> bool:
-    
+def banksDiffer(bank1: NonlinearLabsBankTools.NLParser, bank2: NonlinearLabsBankTools.NLParser) -> bool:
     banks1 = bank1.getBanks()
     banks2 = bank2.getBanks()
 
@@ -14,6 +13,10 @@ def banksDiffer(bank1, bank2) -> bool:
 
     banks1 = banks1[0]
     banks2 = banks2[0]
+
+    if banks1.getVersion() != banks2.getVersion():
+        print(f"banks have different versions: {banks1.getVersion()} != {banks2.getVersion()}")
+        return True
 
     print(f"banks1: {banks1.getName()}")
     print(f"banks2: {banks2.getName()}")

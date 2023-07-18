@@ -172,6 +172,7 @@ class Bank():
     def __init__(self):
         self.attributes = dict()
         self.presets = list()
+        self.version = None
 
     def setNodeValue(self, key, value):
         self.attributes[key] = value
@@ -200,6 +201,9 @@ class Bank():
 
     def getKeys(self):
         return list(self.attributes.keys())
+    
+    def getVersion(self):
+        return self.version
 
 class BankHandler(handler.ContentHandler):
         def __init__(self):
@@ -217,6 +221,7 @@ class BankHandler(handler.ContentHandler):
             if name == "bank":
                 self.currentBank = Bank()
                 self.activeObject = self.currentBank
+                self.currentBank.version = attrs["version"]
             elif name == "preset":
                 self.currentPreset = Preset()
                 self.activeObject = self.currentPreset
