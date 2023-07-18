@@ -16,7 +16,6 @@ def banksDiffer(bank1: NonlinearLabsBankTools.NLParser, bank2: NonlinearLabsBank
 
     if banks1.getVersion() != banks2.getVersion():
         print(f"banks have different versions: {banks1.getVersion()} != {banks2.getVersion()}")
-        return True
 
     print(f"banks1: {banks1.getName()}")
     print(f"banks2: {banks2.getName()}")
