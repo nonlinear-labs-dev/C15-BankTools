@@ -40,8 +40,8 @@ def banksDiffer(bank1: NonlinearLabsBankTools.NLParser, bank2: NonlinearLabsBank
         if otherPreset == None:
             print(f"{banks1.getName()}-{preset.getName()} not found in {banks2.getName()}")
             hadDiff |= True
-            return True
-
+            continue
+            
         for parameter in preset.getParameters():
             otherParameter = otherPreset.findParameter(parameter.getID())
 
