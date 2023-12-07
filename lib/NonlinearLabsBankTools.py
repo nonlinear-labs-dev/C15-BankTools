@@ -5,9 +5,6 @@ import os
 class CSVTools():
     @staticmethod
     def writeListOfLinesToFile(file, lines):
-        fp = open(file, 'x')
-        fp.close()
-        
         file = open(file, "w")
         for line in lines:
             file.write(line)
