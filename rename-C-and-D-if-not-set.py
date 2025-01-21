@@ -17,10 +17,9 @@ def update_xml(input_file, output_file):
                 given_name.text = "Sust. Pedal"
 
         elif param_id == "Global-245":
-            if given_name is None or not (given_name.text or "").strip():
-                if given_name is None:
-                    given_name = ET.SubElement(parameter, "givenName")
-                given_name.text = "Pitch Bend"
+            if given_name is None:
+                given_name = ET.SubElement(parameter, "givenName")
+            given_name.text = "Pitchbend"
     
     # Write the changes to the output file
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
